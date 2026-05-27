@@ -1,0 +1,7 @@
+
+oncall:
+  primary:
+    team: platform-team
+
+  secondary:
+    team: sre-team

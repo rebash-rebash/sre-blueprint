@@ -1,0 +1,16 @@
+
+service: payment-api
+
+sli:
+  availability:
+    query: successful_requests / total_requests
+
+  latency:
+    query: histogram_quantile(0.95, request_duration_seconds)
+
+slo:
+  availability: 99.95
+  latency_p95: 300ms
+
+error_budget:
+  monthly: 21m

@@ -1,0 +1,15 @@
+
+name: sample-service
+tier: tier-1
+
+owner:
+  team: sample-team
+
+runtime:
+  platform: kubernetes
+
+observability:
+  dashboard: grafana/sample-service
+
+slo:
+  availability: 99.9%

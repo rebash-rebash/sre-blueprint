@@ -1,0 +1,16 @@
+
+stages:
+  - lint
+  - validate
+
+yamllint:
+  stage: lint
+  image: cytopia/yamllint
+  script:
+    - yamllint .
+
+promtool:
+  stage: validate
+  image: prom/prometheus
+  script:
+    - promtool check rules alerts/templates/*.yaml

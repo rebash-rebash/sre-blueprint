@@ -1,0 +1,9 @@
+
+teams:
+  - name: platform-team
+    slack: platform-alerts
+    manager: sre-manager
+
+  - name: payments-team
+    slack: payments-alerts
+    manager: engineering-manager

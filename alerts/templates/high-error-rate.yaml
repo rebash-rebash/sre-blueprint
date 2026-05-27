@@ -1,0 +1,14 @@
+
+groups:
+  - name: application-alerts
+    rules:
+      - alert: HighErrorRate
+        expr: rate(http_requests_total{status=~"5.."}[5m]) > 0.05
+        for: 5m
+
+        labels:
+          severity: critical
+
+        annotations:
+          summary: High error rate detected
+          description: Error rate exceeded threshold

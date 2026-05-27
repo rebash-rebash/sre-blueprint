@@ -1,0 +1,27 @@
+
+name: payment-api
+tier: tier-0
+business_criticality: high
+
+owner:
+  team: payments-team
+  slack: payments-alerts
+  email: payments@example.com
+
+repository:
+  gitlab: git@gitlab.company.com:payments/payment-api.git
+
+runtime:
+  platform: kubernetes
+  cluster: prod-gke-01
+  namespace: payments
+
+observability:
+  dashboard: grafana/payment-api
+  logs: loki/payment-api
+  alerts: alertmanager/payment-api
+
+dependencies:
+  - postgres
+  - redis
+  - auth-service

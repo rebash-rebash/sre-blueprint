@@ -1,0 +1,6 @@
+
+*.log
+*.tmp
+.DS_Store
+.terraform/
+node_modules/
