@@ -1,0 +1,32 @@
+service: sample-service
+
+tier:
+  name: tier-1
+  availability: 99.95
+
+owner:
+  team: sample-team
+  email: team@example.com
+
+observability:
+  dashboard: grafana/sample-service
+  alerting: application-alerts
+  logs: loki/sample-service
+
+sli:
+  availability:
+    query: sum(rate(http_requests_total{service="sample-service",status!~"5.."}[5m])) / sum(rate(http_requests_total{service="sample-service"}[5m]))
+  latency_p95:
+    query: histogram_quantile(0.95, sum(rate(request_duration_seconds_bucket{service="sample-service"}[5m])) by (le))
+
+slo:
+  availability: 99.95
+  latency_p95_ms: 300
+
+error_budget:
+  window: 30d
+  burn_rate_alert: 4
+
+recovery:
+  runbook: /runbooks/kubernetes/pod-crashloop.md
+  incident: /incidents/templates/incident-template.md

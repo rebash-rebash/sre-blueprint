@@ -1,19 +1,36 @@
 
 # Enterprise SRE Blueprint Repository
 
-Production-ready SRE foundation repository for organizations building Site Reliability Engineering practices from scratch.
+A reusable Site Reliability Engineering blueprint for organizations that want to establish production-grade operations, reliability, incident response, and security practices.
 
-## Objectives
+## What This Blueprint Covers
 
-- Build standardized SRE processes
-- Define observability standards
-- Establish incident management
-- Implement SLO-driven reliability
-- Build operational maturity
-- Standardize Kubernetes + Cloud operations
-- Enable DevSecOps + Platform Engineering
+- Service inventory and ownership
+- SLO / SLI definitions and error budgets
+- Observability and alerting standards
+- Incident management and postmortem process
+- Runbooks for operational response
+- Security scanning and DevSecOps integration
+- Capacity planning and disaster recovery
+- Chaos engineering and resilience testing
+- Platform automation and GitOps guidance
 
-## Recommended Stack
+## Included Modules
+
+- `alerts/` — Prometheus alerting templates
+- `architecture/` — Platform architecture guidance
+- `automation/` — GitLab CI/CD automation patterns
+- `docs/` — SRE strategy, incident process, reliability standards
+- `incidents/` — Incident templates and tracking
+- `observability/` — Prometheus and Loki setup guidance
+- `ownership/` — team and on-call definitions
+- `postmortems/` — blameless postmortem templates
+- `runbooks/` — operational runbooks for common failure modes
+- `security/` — security scanning and hardening guidance
+- `services/` — sample service SLOs, runbooks, and manifests
+- `templates/` — service and SLO templates for onboarding
+
+## Recommended Technology Stack
 
 - Kubernetes / GKE
 - Prometheus
@@ -28,44 +45,51 @@ Production-ready SRE foundation repository for organizations building Site Relia
 - Trivy
 - Falco
 
-## Repository Structure
-
-This repository includes:
-- Service inventory
-- SLO templates
-- Runbooks
-- Incident response templates
-- Alerting standards
-- Dashboard standards
-- Security standards
-- Capacity planning
-- Disaster recovery
-- Chaos engineering
-
 ## Getting Started
 
-1. Fork this repository
-2. Populate service inventory
-3. Define ownership
-4. Configure observability
-5. Define SLOs
-6. Create runbooks
-7. Implement incident process
-8. Enable automation
+1. Fork or clone this repository.
+2. Add your services under `services/`.
+3. Define team ownership in `ownership/`.
+4. Create SLOs and SLIs using the templates in `templates/`.
+5. Build dashboards and alerts using `docs/dashboard-standards.md` and `docs/alerting-standards.md`.
+6. Document incident response and postmortem workflows.
+7. Add capacity, disaster recovery, and chaos plans.
+8. Automate provisioning and deployment with GitOps.
+
+## Share-Ready Highlights
+
+- Standardized incident management and postmortem process
+- SLO-driven reliability and error budget tracking
+- Capacity planning and disaster recovery guidance
+- Chaos engineering for resilience validation
+- Security integration via Trivy
+
+## New Blueprint Additions
+
+- `docs/capacity-planning.md`
+- `docs/disaster-recovery.md`
+- `docs/chaos-engineering.md`
+- `docs/alerting-standards.md`
+- `docs/dashboard-standards.md`
+- `templates/slo-template.yaml`
 
 ## Suggested Execution Plan
 
-Month 1:
-- Inventory
-- Observability
-- Ownership
+### Month 1
+- Service inventory
+- Ownership model
+- Observability foundations
 
-Month 2:
-- Alerting
-- Incident management
-- SLOs
+### Month 2
+- Alerting and incident workflows
+- SLO definition and error budgets
+- Runbooks and response playbooks
 
-Month 3:
-- Automation
-- GitOps
-- Security integration
+### Month 3
+- Automation and GitOps
+- Security integration and scanning
+- Capacity planning and DR exercises
+
+---
+
+> This repository is designed so any organization can adopt a repeatable SRE foundation and accelerate operational maturity.

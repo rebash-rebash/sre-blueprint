@@ -1,15 +1,31 @@
 
 name: sample-service
-tier: tier-1
+
+tier:
+  name: tier-1
+  availability: 99.95
 
 owner:
   team: sample-team
+  email: team@example.com
 
 runtime:
   platform: kubernetes
+  namespace: sample-namespace
 
 observability:
   dashboard: grafana/sample-service
+  alerting: application-alerts
+  logs: loki/sample-service
 
 slo:
-  availability: 99.9%
+  availability: 99.95
+  latency_p95_ms: 300
+  error_budget_window: 30d
+
+runbook:
+  path: /runbooks/kubernetes/pod-crashloop.md
+
+incident_response:
+  template: /incidents/templates/incident-template.md
+  severity: P2
